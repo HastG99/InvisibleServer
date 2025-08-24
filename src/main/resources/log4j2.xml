@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{HH:mm:ss}] [%t/%-5level] [%C{0}] %msg%n"/>
+        </Console>
+
+        <File name="all_logs_file" fileName="invisibleserver-all.log">
+            <PatternLayout>
+                <pattern>[%d] [%t/%-5level] [%C{0}.%M:%L] %m%n</pattern>
+            </PatternLayout>
+        </File>
+        <File name="logs_file" fileName="invisibleserver.log">
+            <PatternLayout>
+                <pattern>[%d] [%t/%-5level] [%C{0}.%M:%L] %m%n</pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="all">
+            <AppenderRef ref="Console" level="info"/>
+            <AppenderRef ref="logs_file" level="info"/>
+            <AppenderRef ref="all_logs_file"/>
+        </Root>
+    </Loggers>
+</Configuration>
